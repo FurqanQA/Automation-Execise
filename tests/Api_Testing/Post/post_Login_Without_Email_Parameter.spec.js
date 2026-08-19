@@ -6,7 +6,6 @@ test('Post Login With Valid Credential', async ({ request }) => {
         'https://automationexercise.com/api/verifyLogin',
         {
             form: {
-                email: 'furqanmehdi.sqa@gmail.com',
                 password: '123456'
             }
         }
@@ -18,6 +17,6 @@ test('Post Login With Valid Credential', async ({ request }) => {
 
     console.log(body);
 
-    expect(body.responseCode).toBe(200);
-    expect(body.message).toBe('User exists!');
+    expect(body.responseCode).toBe(400);
+    expect(body.message).toBe('Bad request, email or password parameter is missing in POST request.');
 });

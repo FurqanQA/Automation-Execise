@@ -7,7 +7,7 @@ test('Post Login With Valid Credential', async ({ request }) => {
         {
             form: {
                 email: 'furqanmehdi.sqa@gmail.com',
-                password: '123456'
+                password: 'wrongpassword'
             }
         }
     );
@@ -18,6 +18,6 @@ test('Post Login With Valid Credential', async ({ request }) => {
 
     console.log(body);
 
-    expect(body.responseCode).toBe(200);
-    expect(body.message).toBe('User exists!');
+    expect(body.responseCode).toBe(404);
+    expect(body.message).toBe('User not found!');
 });
