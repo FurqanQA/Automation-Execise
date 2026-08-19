@@ -7,7 +7,7 @@ test('Register User With Valid Credentials', async ({ request }) => {
         {
             form: {
                 name: 'Furqan Mehdi',
-                email: `furqan@example.com`,
+                email: `furqanjaffer@example.com`,
                 password: '123456',
                 title: 'Mr',
                 birth_date: '1',

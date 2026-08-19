@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('DELETE USER ACCOUNT', async ({ request }) => {
 
-    const email = `furqan@example.com`;
+    const email = `furqanmehdijafferi@example.com`;
     const password = '123456';
 
     // 1. Create user
@@ -33,9 +33,12 @@ test('DELETE USER ACCOUNT', async ({ request }) => {
 
     const createBody = await createResponse.json();
 
-    expect(createResponse.status()).toBe(200);
-    expect(createBody.responseCode).toBe(201);
-    expect(createBody.message).toBe('User created!');
+console.log('Create Status:', createResponse.status());
+console.log('Create Response:', createBody);
+
+expect(createResponse.status()).toBe(200);
+expect(createBody.responseCode).toBe(201);
+expect(createBody.message).toBe('User created!');
 
 
     // 2. Delete same user

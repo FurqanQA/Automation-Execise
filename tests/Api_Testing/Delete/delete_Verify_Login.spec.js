@@ -5,6 +5,6 @@ test('Delete To Verify Login', async ({request}) => {
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    expect(body.responseCode).toBe(200);
-    expect(body.message).toBe('User exist');
+    expect(body.responseCode).toBe(405);
+    expect(body.message).toBe('This request method is not supported.');
 });
