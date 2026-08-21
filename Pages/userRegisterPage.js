@@ -51,8 +51,12 @@ export class userRegisterPage extends BasePage {
     await this.signupBtn.click();
   }
   async verifyAccountInformationPage() {
+    
     await expect(this.accountInformationHeading).toBeVisible();
-  }
+    await expect(this.accountInformationHeading)
+        .toHaveText('Enter Account Information');
+
+}
 
   async GenderSelection(gender) {
     if (gender === "Mr") {

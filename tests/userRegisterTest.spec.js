@@ -7,11 +7,11 @@ test("User Registration Tests", async({page}) => {
 
     await userRegister.navigateToHomepage();
     await userRegister.clickSignupLink();
-    await userRegister.enterName("Alice Smith");
-    await userRegister.enterEmail("alice.smith@example.com");
+    await userRegister.enterName("Alic Smith");
+    await userRegister.enterEmail("alic.smith@example.com");
     await userRegister.clickSignupButton();
     await expect(page).toHaveURL(/.*\/signup/);
-    await expect(page).toHaveTitle('Automation Exercise - Signup / Login');
+    await expect(page).toHaveTitle('Automation Exercise - Signup');
     await userRegister.verifyAccountInformationPage();
     await userRegister.GenderSelection("Mr");
     await userRegister.enterPassword("password123");
