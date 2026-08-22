@@ -13,15 +13,21 @@ export class userRegisterPage extends BasePage {
     this.signupBtn = page.locator(userRegisterLocator.signupBtn);
     this.errorMsg = page.locator(userRegisterLocator.errorMsg);
     this.successMsg = page.locator(userRegisterLocator.successMsg);
-    this.accountInformationHeading = page.locator(userRegisterLocator.accountInformationHeading);
-    this .genderMr = page.locator(userRegisterLocator.genderMr);
+    this.accountInformationHeading = page.locator(
+      userRegisterLocator.accountInformationHeading,
+    );
+    this.genderMr = page.locator(userRegisterLocator.genderMr);
     this.genderMrs = page.locator(userRegisterLocator.genderMrs);
     this.passwordInput = page.locator(userRegisterLocator.passwordInput);
     this.dayField = page.locator(userRegisterLocator.dayField);
     this.monthField = page.locator(userRegisterLocator.monthField);
     this.yearField = page.locator(userRegisterLocator.yearField);
-    this.newsletterCheckbox = page.locator(userRegisterLocator.newsletterCheckbox);
-    this.receiveOffersCheckbox = page.locator(userRegisterLocator.receiveOffersCheckbox);
+    this.newsletterCheckbox = page.locator(
+      userRegisterLocator.newsletterCheckbox,
+    );
+    this.receiveOffersCheckbox = page.locator(
+      userRegisterLocator.receiveOffersCheckbox,
+    );
     this.firstNameInput = page.locator(userRegisterLocator.firstNameInput);
     this.lastNameInput = page.locator(userRegisterLocator.lastNameInput);
     this.companyInput = page.locator(userRegisterLocator.companyInput);
@@ -31,8 +37,11 @@ export class userRegisterPage extends BasePage {
     this.stateInput = page.locator(userRegisterLocator.stateInput);
     this.cityInput = page.locator(userRegisterLocator.cityInput);
     this.zipcodeInput = page.locator(userRegisterLocator.zipcodeInput);
-    this.mobileNumberInput = page.locator(userRegisterLocator.mobileNumberInput);
+    this.mobileNumberInput = page.locator(
+      userRegisterLocator.mobileNumberInput,
+    );
     this.createAccountBtn = page.locator(userRegisterLocator.createAccountBtn);
+    this.errorMsg = page.locator(userRegisterLocator.errorMsg);
   }
 
   async clickSignupLink() {
@@ -51,12 +60,11 @@ export class userRegisterPage extends BasePage {
     await this.signupBtn.click();
   }
   async verifyAccountInformationPage() {
-    
     await expect(this.accountInformationHeading).toBeVisible();
-    await expect(this.accountInformationHeading)
-        .toHaveText('Enter Account Information');
-
-}
+    await expect(this.accountInformationHeading).toHaveText(
+      "Enter Account Information",
+    );
+  }
 
   async GenderSelection(gender) {
     if (gender === "Mr") {
@@ -130,5 +138,13 @@ export class userRegisterPage extends BasePage {
 
   async clickCreateAccountButton() {
     await this.page.locator(userRegisterLocator.createAccountBtn).click();
+  }
+
+  async getValidationMessage(locator) {
+    return await locator.evaluate((element) => element.validationMessage);
+  }
+
+  async getErrorMessage() {
+    return await this.errorMsg.textContent();
   }
 }
