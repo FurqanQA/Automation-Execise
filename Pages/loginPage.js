@@ -35,4 +35,8 @@ export class loginPage extends BasePage {
   async verifyLoginSuccess() {
     await expect(this.loggedInUser).toBeVisible();
   }
+
+  async logout() {
+    await this.page.locator(loginLocators.logoutBtn).click();
+  }
 }
