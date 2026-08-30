@@ -26,3 +26,17 @@ test("Product Page Test", async ({ page }) => {
     // 6. Verify product details
     await product.verifyProductDetailPage();
 });
+
+test("Product Subscription Test", async ({ page }) => {
+    const login = new loginPage(page);
+    const product = new productPage(page);
+
+    await product.navigateToHomepage();
+    await login.loginlink.click();
+    await login.loginAsUser(
+        'thdevfive@gmail.com',
+        'KwbRM@w4UPCEwT'
+    );
+    
+    await product.verifySubscription();
+});

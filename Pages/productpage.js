@@ -18,6 +18,9 @@ export class productPage extends BasePage {
         this.productDetailAvailability = page.locator(productPageLocators.productDetailAvailability);
         this.productDetailCondition = page.locator(productPageLocators.productDetailCondition);
         this.productDetailBrand = page.locator(productPageLocators.productDetailBrand);
+        this.subscribeInput = page.locator(productPageLocators.subscribeInput);
+        this.subscribeButton = page.locator(productPageLocators.subscribeButton);
+        this.subscribeSuccessMessage = page.locator(productPageLocators.subscribeSuccessMessage);
     }
 
 
@@ -60,4 +63,14 @@ export class productPage extends BasePage {
         await expect(this.productDetailBrand)
             .toContainText("Brand:");
     }
+
+    async verifySubscription() {
+    await expect(this.subscribeInput).toBeVisible();
+
+    await this.subscribeInput.fill("furqan@gmail.com");
+
+    await this.subscribeButton.click();
+
+    await expect(this.subscribeSuccessMessage).toBeVisible();
+}
 }

@@ -1,3 +1,5 @@
+import { subscribe } from "node:diagnostics_channel";
+
 export const productPageLocators = {
 
     productsLink: 'a[href="/products"]',
@@ -10,5 +12,9 @@ export const productPageLocators = {
     productDetailPrice: '.product-information span span',
     productDetailAvailability: '.product-information p:has-text("Availability")',
     productDetailCondition: '.product-information p:has-text("Condition")',
-    productDetailBrand: '.product-information p:has-text("Brand")'
+    productDetailBrand: '.product-information p:has-text("Brand")',
+    subscribeInput: '#susbscribe_email',
+    subscribeButton: '#subscribe',
+    subscribeSuccessMessage: '.alert-success'
+    
 };
