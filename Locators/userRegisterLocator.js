@@ -25,5 +25,5 @@ export const userRegisterLocator = {
     cityInput: 'input[data-qa="city"]',
     zipcodeInput: 'input[data-qa="zipcode"]',
     mobileNumberInput: 'input[data-qa="mobile_number"]',
-    createAccountBtn: 'button[data-qa="create-account"]' 
-}
+    createAccountBtn: 'button[data-qa="create-account"]'
+};

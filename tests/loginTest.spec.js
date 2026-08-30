@@ -16,6 +16,20 @@ test('Login with Valid Credentials', async ({ page }) => {
     await login.verifyLoginSuccess();
 });
 
+test('Some authenticated feature', async ({ page }) => {
+
+    const login = new loginPage(page);
+
+    await login.navigateToHomepage();
+
+    await login.loginAsUser(
+        'thdevfive@gmail.com',
+        'KwbRM@w4UPCEwT'
+    );
+
+    // Ab directly authenticated functionality
+});
+
 test('logout after login', async ({ page }) => {
 
     const login = new loginPage(page);

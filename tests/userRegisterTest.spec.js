@@ -99,4 +99,3 @@ test("User Registration With Only Required Fields", async ({ page }) => {
   await expect(page).toHaveURL(/.*\/account_created/);
   
 });
-
